@@ -1,0 +1,24 @@
+﻿@using MVCDemo.Controllers;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<br />
+@Html.ActionLink("ReturnJson：回傳Json", nameof(TestController.ReturnJson))
+<br />
+@Html.ActionLink("ReturnView：回傳View(包含PartialView)", nameof(TestController.ReturnView))
+<br />
+@Html.ActionLink("ReturnPartialView：回傳PartialView", nameof(TestController.ReturnPartialView))
+<br />
+@Html.ActionLink("ReturnRedirectToAction：回傳至其他頁面", nameof(TestController.ReturnRedirectToAction))
+<br />
+<br />
+@Html.ActionLink("PassData1：同Action內傳遞資料", nameof(TestController.PassData1))
+<br />
+@Html.ActionLink("PassData3：跨Action間傳遞資料", nameof(TestController.PassData3))
+<br />
+@Html.ActionLink("PassViewModel：同Action內傳遞ViewModel", nameof(TestController.PassViewModel))
+<br />

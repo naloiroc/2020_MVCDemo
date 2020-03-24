@@ -1,0 +1,24 @@
+﻿@{
+    string data1 = "is null";
+    string data2 = "is null";
+    string data3 = "is null";
+
+    if (ViewData["Data1"] != null)
+    {
+        data1 = ViewData["Data1"].ToString();
+    }
+
+    if (ViewBag.Data2 != null)
+    {
+        data2 = ViewBag.Data2;
+    }
+
+    if (TempData["Data3"] != null)
+    {
+        data3 = TempData["Data3"].ToString();
+    }
+}
+<h3>Action = PassData2</h3>
+<h3>ViewData = @data1</h3>
+<h3>ViewBag = @data2</h3>
+<h3>TempData = @data3</h3>

@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/MVCDemo/Views/Employee
+/MVCDemo/Controllers/EmployeeController.cs
+/MVCDemo/Models/EmployeeViewModel.cs
