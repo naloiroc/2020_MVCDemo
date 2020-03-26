@@ -1,0 +1,25 @@
+﻿@model MVCDemo.Models.Student
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Validation Index</h2>
+@using (Html.BeginForm("Index", "Validation", FormMethod.Post))
+{ 
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+    <br />
+    @Html.LabelFor(m => m.Age)
+    @Html.TextBoxFor(m => m.Age)
+    @Html.ValidationMessageFor(m => m.Age)
+    <br />
+    <button>送出</button>
+}
+@*<form action="@Url.Action("Index")" method="post">
+    <input type="text" value="@Model.Name"/>
+    <input type="text" value="@Model.Age" />
+</form>*@

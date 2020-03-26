@@ -1,0 +1,11 @@
+﻿@model MVCDemo.Models.Employee
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Hi,我是張建昇</h2>
+
+@Html.Partial("_Index", Model)
+
+<hr />
+@Html.Action("_Index")
