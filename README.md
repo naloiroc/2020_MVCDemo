@@ -227,4 +227,22 @@ List修改
             }
 
 ```
+### 跨站請求偽造 Cross-site request forgery CSRF
+- 登入時瀏覽器會記錄該網站 www.AAA.com.tw 的 Cookies
+- 每次的Request，瀏覽器會帶該網站的 Cookie 至 Server
+- 當拜訪惡意網站 www.BBB.com.tw ，點擊惡意連結
+```
+<a href="www.AAA.com.tw/home/delete/1">送出</>
+```
+- 原網站的伺服器接收後會被誤會以為是用户合法操作。
+- View 新增 @Html.AntiForgeryToken()
+- Action 新增 [ValidateAntiForgeryToken]
 
+[參考連結](https://blog.techbridge.cc/2017/02/25/csrf-introduction/)
+
+### 正規表示式 Regular Expression
+- 用來比對字串是不是有符合指定的格式
+
+[Regex101](https://regex101.com/)
+
+[參考連結](https://larry850806.github.io/2016/06/23/regex/)
