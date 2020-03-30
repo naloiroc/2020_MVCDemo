@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeWork1Controller.cs" />
+    <Compile Include="Controllers\LinqController.cs" />
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -191,6 +192,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Linq\" />
     <Folder Include="Views\List\" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ namespace MVCDemo.Models
 {
     public class Employee
     {
+
         public string EmpID { get; set; }
         public string EmpName { get; set; }
     }

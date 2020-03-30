@@ -17,6 +17,13 @@ namespace MVCDemo.Models
         [Range(20, 100, ErrorMessage = "年齡區間為20 ~ 100")]
         public int? Age { get; set; }
     }
+    public class Teacher
+    {
+        public string FullName { get; set; }
+
+        public int? Age { get; set; }
+    }
+
 
     public class MinValueAttribute : ValidationAttribute
     {
