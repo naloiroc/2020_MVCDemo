@@ -10,12 +10,13 @@
     @Html.AntiForgeryToken()
 
     @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name, )
     @Html.ValidationMessageFor(m => m.Name)
     <br />
     @Html.LabelFor(m => m.Age)
     @Html.TextBoxFor(m => m.Age)
     @Html.ValidationMessageFor(m => m.Age)
+
     <br />
     <button>送出</button>
 }

@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -118,12 +126,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
+    <Compile Include="Controllers\EFController.cs" />
     <Compile Include="Controllers\HomeWork1Controller.cs" />
     <Compile Include="Controllers\HomeWork2Controller.cs" />
     <Compile Include="Controllers\HtmlHelperController.cs" />
@@ -133,6 +139,27 @@
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
+    <Compile Include="Data\Class.cs">
+      <DependentUpon>School.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\School.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>School.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\School.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>School.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\School.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>School.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Student.cs">
+      <DependentUpon>School.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,20 +167,43 @@
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\HelperModel.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\SchoolRepository.cs" />
     <Compile Include="Service\GlobalMethods.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\School.mdf" />
+    <Content Include="App_Data\School_log.ldf">
+      <DependentUpon>School.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Data\School.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>School.Context.cs</LastGenOutput>
+      <DependentUpon>School.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\School.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>School.edmx</DependentUpon>
+      <LastGenOutput>School.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Data\School.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>School.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\School.edmx.diagram">
+      <DependentUpon>School.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -207,8 +257,7 @@
     <Content Include="Views\HomeWork2\_DisplayEmpList.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Data\" />
+    <Folder Include="Views\EF\" />
     <Folder Include="Views\Linq\" />
     <Folder Include="Views\List\" />
   </ItemGroup>
@@ -224,6 +273,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
