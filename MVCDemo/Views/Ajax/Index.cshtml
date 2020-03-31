@@ -1,0 +1,66 @@
+﻿@model MVCDemo.Models.Student
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .border {
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px;
+    }
+</style>
+
+<h2>Student</h2>
+<div class="index-panel">
+    @Html.Action("IndexPartial")
+</div>
+<div class="insert-panel"></div>
+@*@Html.Action("InsertPartial")*@
+
+@Html.AntiForgeryToken()
+
+<button class="btn btn-default btn-show-new">New</button>
+
+
+@section scripts{
+    <script>
+        var AntiKey = document.getElementsByName("__RequestVerificationToken")[0].value;
+        $(function () {
+            $('.btn-show-new').click(function () {
+                $.ajax({
+                    method: 'POST',
+                    url: '@Url.Action("InsertPartial")',
+                    data: {
+                        __RequestVerificationToken: AntiKey,
+                    },
+                    success: function (data) {
+                        $('.insert-panel').html(data)
+                        $('.btn-insert').click(function () {
+                            $.ajax({
+                                method: 'POST',
+                                url: '@Url.Action("Insert")',
+                                data: $('#insert-form').serialize(),
+                                success: function (data) {
+                                    if (data.IsSuccess === true)
+                                    {
+                                        $('.insert-panel').empty()
+                                        $.ajax({
+                                            method: 'GET',
+                                            url: '@Url.Action("IndexPartial")',
+                                            success: function (data) {
+                                                $('.index-panel').html(data)
+                                            }
+                                        })
+                                    }
+                                }
+
+                            })
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+    }

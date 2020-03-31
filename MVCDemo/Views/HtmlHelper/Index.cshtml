@@ -1,0 +1,76 @@
+﻿@model MVCDemo.Models.HelperModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "HtmlHelper", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Display, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.Display, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DisplayName, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.DisplayName, new { @class = "form-control" })
+    </div> <div class="form-group">
+        @Html.LabelFor(m => m.Text, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.Text, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Text, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Number, new { @class = "control-label col-sm-2" })
+        @Html.EditorFor(m => m.Number, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(m => m.Number, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Birthday1, new { @class = "control-label col-sm-2" })
+        @Html.EditorFor(m => m.Birthday1, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(m => m.Birthday1, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Birthday2, new { @class = "control-label col-sm-2" })
+        @Html.EditorFor(m => m.Birthday2, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(m => m.Birthday2, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Hidden, new { @class = "control-label col-sm-2" })
+        @Html.HiddenFor(m => m.Hidden)
+        @Html.ValidationMessageFor(m => m.Hidden, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "control-label col-sm-2" })
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Radio, new { @class = "control-label col-sm-2" })
+        <label>
+            @Html.RadioButtonFor(m => m.Radio, "radio1")
+            Radio1
+        </label>
+        <label>
+            @Html.RadioButtonFor(m => m.Radio, "radio2")
+            Radio2
+        </label>
+        @Html.RadioButtonFor(m => m.Radio, "radio3")
+        @Html.RadioButtonFor(m => m.Radio, "radio4")
+        @Html.ValidationMessageFor(m => m.Radio, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Check, new { @class = "control-label col-sm-2" })
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(m => m.Check)
+                IsChecked
+            </label>
+        </div>
+
+        @Html.ValidationMessageFor(m => m.Text, null, new { @class = "text-danger" })
+    </div>
+    <button class="btn btn-primary">Submit</button>
+    @Html.ActionLink("Link", "Link", new { id = "AAA", name = "BBB" }, new { @class = "btn btn-success" })
+
+}

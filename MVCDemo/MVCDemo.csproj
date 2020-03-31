@@ -118,9 +118,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\RouteConfig2.cs" />
+    <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\HomeWork1Controller.cs" />
+    <Compile Include="Controllers\HomeWork2Controller.cs" />
+    <Compile Include="Controllers\HtmlHelperController.cs" />
     <Compile Include="Controllers\LinqController.cs" />
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
@@ -131,8 +137,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\HelperModel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\GlobalMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -188,6 +197,14 @@
     <Content Include="Views\Validation\Success.cshtml" />
     <Content Include="Views\HomeWork1\Index.cshtml" />
     <Content Include="Views\HomeWork1\_Index.cshtml" />
+    <Content Include="Views\HtmlHelper\Index.cshtml" />
+    <Content Include="Views\Ajax\Index.cshtml" />
+    <Content Include="Views\Ajax\_IndexPartial.cshtml" />
+    <Content Include="Views\Ajax\_InsertPartial.cshtml" />
+    <Content Include="Views\HomeWork2\Create.cshtml" />
+    <Content Include="Views\HomeWork2\Edit.cshtml" />
+    <Content Include="Views\HomeWork2\Index.cshtml" />
+    <Content Include="Views\HomeWork2\_DisplayEmpList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
