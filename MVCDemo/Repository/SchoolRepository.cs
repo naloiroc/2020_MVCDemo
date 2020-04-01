@@ -15,7 +15,8 @@ namespace MVCDemo.Repository
         {
             // 新增一筆
             using (SchoolEntities context = new SchoolEntities())
-            {
+            {                
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
                 context.Student.Add(student);
                 int res = context.SaveChanges();
             }
@@ -26,6 +27,7 @@ namespace MVCDemo.Repository
             // 新增多筆
             using (SchoolEntities context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
                 context.Student.AddRange(listStudent);
                 int res = context.SaveChanges();
             }
@@ -35,6 +37,9 @@ namespace MVCDemo.Repository
         {
             using (SchoolEntities context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
+
                 // 修改一筆
                 //Student modifyStudent = context.Student.Find(student.ID);
                 var modifyStudent = context.Student.Where(m => m.ID == student.ID).First();
@@ -60,6 +65,8 @@ namespace MVCDemo.Repository
         {
             using (SchoolEntities context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 // 刪除一筆
                 var deleteStudent = context.Student.Where(m => m.ID == student.ID).First();
                 context.Student.Remove(deleteStudent);
@@ -76,6 +83,8 @@ namespace MVCDemo.Repository
         {
             using (var context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 var listStudent = context.Student.Where(m => m.Name == name);
 
                 //var listStudent = from s in context.Student
@@ -90,6 +99,8 @@ namespace MVCDemo.Repository
         {
             using (var context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 var listStudentInfo = from s in context.Student
                                       join c in context.Class
                                       on s.ClassID equals c.ClassID
@@ -125,6 +136,8 @@ namespace MVCDemo.Repository
             // 查詢單一 Table 資料
             using (var context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 string sql;
                 sql  = "SELECT ID, Name, Age, ClassID ";
                 sql += "FROM Student ";
@@ -153,6 +166,8 @@ namespace MVCDemo.Repository
             // 查詢整個 DB 資料
             using (var context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 string sql;
                 sql = "SELECT s.ID, s.Name, s.Age, s.ClassID, c.ClassName ";
                 sql += "FROM Student AS s ";
@@ -182,6 +197,8 @@ namespace MVCDemo.Repository
             // 異動整個 DB 資料
             using (var context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 string sql;
                 sql  = "UPDATE Student";
                 sql  = "SET Name = Name + 'X' ";
@@ -205,6 +222,8 @@ namespace MVCDemo.Repository
         {
             using (var context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 context.Entry(student).State = EntityState.Added;
                 int res = context.SaveChanges();
             }
@@ -214,6 +233,8 @@ namespace MVCDemo.Repository
         {
             using (var context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 context.Entry(student).State = EntityState.Modified;
                 int res = context.SaveChanges();
             }
@@ -223,6 +244,8 @@ namespace MVCDemo.Repository
         {
             using (var context = new SchoolEntities())
             {
+                context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
                 context.Entry(student).State = EntityState.Deleted;
                 int res = context.SaveChanges();
             }
