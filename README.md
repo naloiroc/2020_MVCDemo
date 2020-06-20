@@ -246,3 +246,33 @@ List修改
 [Regex101](https://regex101.com/)
 
 [參考連結](https://larry850806.github.io/2016/06/23/regex/)
+
+
+
+## Logout 說明
+若要使用 Logout 功能，首先必需客製 Welcome Page
+
+#### 若已有客製的 Welcome Page
+請在 <scritp></script> 加入以下程式碼
+``` javascript
+    var url="/upload/popup.html";        
+    var w=210;               
+    var h=80;               
+    var x=window.screen.width - w - 20;               
+    var y=window.screen.height - h - 60;               
+    window.open(url, 'logout', "toolbar=no,location=no,width="+w+",height="+h+",top="+y+",left="+x+",screenX="+x+",screenY="+y);
+```
+
+#### 若無客製的 Welcome Page
+上傳 welc.html，此為官方文件所提供的範例程式碼
+在設定頁面中 Management > Captive Portal > Upload Login Pages，下拉選單選 Captive Portal Welcome Page 將此檔案上傳
+上傳後檔案會放在 upload 資料夾中
+之後執行指令 "aaa captive-portal welcome-page /upload/welc.html"
+
+####  上傳 Popup 登出頁面
+上傳 popup.html ，此為官方文件所提供的範例程式碼
+若不需客製化"已登出"頁面，上傳 logout-without-custom-loggedout-page/popup.html
+若需要客製化"已登出"頁面，上傳 logout-with-custom-loggedout-page中 的 popup.html 與 loggedout.html
+在設定頁面中 Management > Captive Portal > Upload custom pages，並且選擇 content
+
+
