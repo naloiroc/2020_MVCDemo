@@ -264,15 +264,15 @@ List修改
 ```
 
 #### 若無客製的 Welcome Page
-上傳 welc.html，此為官方文件所提供的範例程式碼
-在設定頁面中 Management > Captive Portal > Upload Login Pages，下拉選單選 Captive Portal Welcome Page 將此檔案上傳
-上傳後檔案會放在 upload 資料夾中
-之後執行指令 "aaa captive-portal welcome-page /upload/welc.html"
+上傳 welc.html，此為官方文件所提供的範例程式碼  
+在設定頁面中 Management > Captive Portal > Upload Login Pages，下拉選單選 Captive Portal Welcome Page 將此檔案上傳  
+上傳後檔案會放在 upload 資料夾中  
+之後執行指令 "aaa captive-portal welcome-page /upload/welc.html"  
 
 ####  上傳 Popup 登出頁面
-上傳 popup.html ，此為官方文件所提供的範例程式碼
-若不需客製化"已登出"頁面，上傳 logout-without-custom-loggedout-page/popup.html
-若需要客製化"已登出"頁面，上傳 logout-with-custom-loggedout-page中 的 popup.html 與 loggedout.html
-在設定頁面中 Management > Captive Portal > Upload custom pages，並且選擇 content
+上傳 popup.html ，此為官方文件所提供的範例程式碼  
+若不需客製化"已登出"頁面，上傳 logout-without-custom-loggedout-page/popup.html  
+若需要客製化"已登出"頁面，上傳 logout-with-custom-loggedout-page中 的 popup.html 與 loggedout.html  
+在設定頁面中 Management > Captive Portal > Upload custom pages，並且選擇 content  
 
 
